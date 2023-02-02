@@ -34,6 +34,14 @@ h6 {
 # Back to top button
 --------------------------------------------------------------*/
 
+blockquote {
+    border-left: solid 4px;
+    font-style: italic;
+    margin: 0 0 2rem 0;
+    padding: 0.5rem 0 0.5rem 2rem;
+    border-left-color: #eeeeee;
+}
+
 .back-to-top {
     position: fixed;
     visibility: hidden;
