@@ -768,6 +768,7 @@ section {
     transition: all 0.3s ease-in-out;
     text-align: center;
     border: 1px solid #fff;
+    border-radius: 10px;
 }
 
 .services .icon {
@@ -924,6 +925,7 @@ section {
 .portfolio #portfolio-flters {
     list-style: none;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 .portfolio #portfolio-flters li {
@@ -938,6 +940,7 @@ section {
     color: #444444;
     transition: all 0.3s ease-in-out;
     border: 2px solid #fff;
+    border-radius: 10px;
 }
 
 .portfolio #portfolio-flters li:hover,
@@ -953,6 +956,7 @@ section {
 .portfolio .portfolio-item .portfolio-img {
     overflow: hidden;
     border-radius: 10px;
+    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
 }
 
 .portfolio .portfolio-item .portfolio-img img {
@@ -1203,6 +1207,7 @@ section {
     text-align: center;
     box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
     padding: 20px 0 30px 0;
+    border-radius: 10px;
 }
 
 .contact .info-box i.bx {
@@ -1452,6 +1457,7 @@ section {
     cursor: pointer;
     border-radius: 10px;
     object-fit: cover;
+    box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.3);
 }
 
 #lightbox {
