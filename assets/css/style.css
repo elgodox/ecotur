@@ -337,21 +337,6 @@ blockquote {
     position: relative;
 }
 
-.hero-video .loading-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background-color: #ccc;
-}
-
-.hero-video .loading-bar .progress {
-    height: 100%;
-    background-color: #333;
-    width: 0%;
-}
-
 .hero-video video {
     position: absolute;
     top: 0;
