@@ -49,10 +49,13 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero">
         <div class="hero-video">
-            <video autoplay loop preload="auto">
+            <video autoplay loop poster="/assets/img/forest.png" preload="auto">
               <source src="assets/video/Header_c.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
+            <div class="loading-bar">
+                <div class="progress"></div>
+            </div>
         </div>
         <div class="hero-container">
             <!-- <img src="Logo.svg" alt="logo" class="img-fluid"> -->
@@ -330,6 +333,20 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        const video = document.querySelector('.hero-video video');
+        const progress = document.querySelector('.header-video .progress');
+
+        video.addEventListener('progress', function() {
+            const percent = video.buffered.end(0) / video.duration * 100;
+            progress.style.width = percent + '%';
+        });
+
+        video.addEventListener('canplay', function() {
+            video.play();
+        });
+    </script>
 
 </body>
 
