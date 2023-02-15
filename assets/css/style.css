@@ -1274,39 +1274,6 @@ section {
     box-shadow: 0 0 50px rgba(133, 133, 133, 0.753);
 }
 
-
-/* .carousel-thumbnails {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: none;
-} */
-
-
-/* .scrollable-section {
-    overflow: auto;
-} */
-
-
-/* 
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
- ::-webkit-scrollbar-track {
-    background-color: #f1f1f100;
-}
-
- ::-webkit-scrollbar-thumb {
-    background-color: #30303046;
-    border-radius: 10px;
-}
-
- ::-webkit-scrollbar-button {
-    display: none;
-}
-
-*/
-
 @media only screen and (max-width: 1768px) {
     .carousel-thumbnails {
         overflow-x: scroll;
