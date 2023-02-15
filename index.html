@@ -470,6 +470,22 @@
             thumbnailsContainer.scrollLeft(scrollPosition);
         });
     </script>
+    <script>
+        const images = document.querySelectorAll('.carousel-item img');
+        images.forEach(image => {
+            image.addEventListener('click', (e) => {
+                const lightbox = document.createElement('div');
+                lightbox.id = 'lightbox';
+                lightbox.innerHTML = `
+              <img src="${e.target.src}" alt="${e.target.alt}">
+            `;
+                document.body.appendChild(lightbox);
+                lightbox.addEventListener('click', () => {
+                    lightbox.remove();
+                });
+            });
+        });
+    </script>
 
 
 
