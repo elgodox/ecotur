@@ -238,20 +238,6 @@
                 </div>
 
                 <div id="slider" class="carousel slide" data-ride="carousel" data-interval="3000">
-                    <!-- Indicadores -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#slider" data-slide-to="0" class="active"></li>
-                        <li data-target="#slider" data-slide-to="1"></li>
-                        <li data-target="#slider" data-slide-to="2"></li>
-                        <li data-target="#slider" data-slide-to="3"></li>
-                        <li data-target="#slider" data-slide-to="4"></li>
-                        <li data-target="#slider" data-slide-to="5"></li>
-                        <li data-target="#slider" data-slide-to="6"></li>
-                        <li data-target="#slider" data-slide-to="7"></li>
-                        <li data-target="#slider" data-slide-to="8"></li>
-                        <li data-target="#slider" data-slide-to="9"></li>
-                        <li data-target="#slider" data-slide-to="10"></li>
-                    </ol>
                     <!-- Contenido del slider -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -288,22 +274,20 @@
                             <img src="assets/img/hotel/011.jpg">
                         </div>
                     </div>
-
-                </div>
-                <div class="carousel-thumbnails-container">
-
-                    <div class="carousel-thumbnails">
-                        <img src="assets/img/hotel/01-thumb.jpg" data-target="#slider" data-slide-to="0" class="active">
-                        <img src="assets/img/hotel/02-thumb.jpg" data-target="#slider" data-slide-to="1">
-                        <img src="assets/img/hotel/03-thumb.jpg" data-target="#slider" data-slide-to="2">
-                        <img src="assets/img/hotel/04-thumb.jpg" data-target="#slider" data-slide-to="3">
-                        <img src="assets/img/hotel/05-thumb.jpg" data-target="#slider" data-slide-to="4">
-                        <img src="assets/img/hotel/06-thumb.jpg" data-target="#slider" data-slide-to="5">
-                        <img src="assets/img/hotel/07-thumb.jpg" data-target="#slider" data-slide-to="6">
-                        <img src="assets/img/hotel/08-thumb.jpg" data-target="#slider" data-slide-to="7">
-                        <img src="assets/img/hotel/09-thumb.jpg" data-target="#slider" data-slide-to="8">
-                        <img src="assets/img/hotel/010-thumb.jpg" data-target="#slider" data-slide-to="9">
-                        <img src="assets/img/hotel/011-thumb.jpg" data-target="#slider" data-slide-to="10">
+                    <div class="carousel-thumbnails-container">
+                        <div class="carousel-thumbnails">
+                            <img src="assets/img/hotel/01-thumb.jpg" data-target="#slider" data-slide-to="0" class="active">
+                            <img src="assets/img/hotel/02-thumb.jpg" data-target="#slider" data-slide-to="1">
+                            <img src="assets/img/hotel/03-thumb.jpg" data-target="#slider" data-slide-to="2">
+                            <img src="assets/img/hotel/04-thumb.jpg" data-target="#slider" data-slide-to="3">
+                            <img src="assets/img/hotel/05-thumb.jpg" data-target="#slider" data-slide-to="4">
+                            <img src="assets/img/hotel/06-thumb.jpg" data-target="#slider" data-slide-to="5">
+                            <img src="assets/img/hotel/07-thumb.jpg" data-target="#slider" data-slide-to="6">
+                            <img src="assets/img/hotel/08-thumb.jpg" data-target="#slider" data-slide-to="7">
+                            <img src="assets/img/hotel/09-thumb.jpg" data-target="#slider" data-slide-to="8">
+                            <img src="assets/img/hotel/010-thumb.jpg" data-target="#slider" data-slide-to="9">
+                            <img src="assets/img/hotel/011-thumb.jpg" data-target="#slider" data-slide-to="10">
+                        </div>
                     </div>
                 </div>
 
@@ -476,7 +460,54 @@
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            var thumbnailsContainer = $(".carousel-thumbnails-container");
+            var thumbnails = $(".carousel-thumbnails");
+            var thumbnailCount = thumbnails.children().length;
+            var thumbnailWidth = thumbnails.children().first().outerWidth(true);
+            var thumbnailsVisible = Math.floor(thumbnailsContainer.width() / thumbnailWidth);
+            var thumbnailsWrapperWidth = thumbnailCount * thumbnailWidth;
 
+            thumbnails.width(thumbnailsWrapperWidth);
+
+            var offset = 0;
+            var dragStart = 0;
+
+            thumbnails.on("mousedown", function(event) {
+                thumbnails.addClass("grabbing");
+                dragStart = event.pageX - offset;
+                thumbnails.on("mousemove", function(event) {
+                    var dragDelta = event.pageX - dragStart;
+                    var dragOffset = Math.max(Math.min(0, dragDelta), -(thumbnailsWrapperWidth - thumbnailsContainer.width()));
+                    thumbnails.css("transform", "translateX(" + dragOffset + "px)");
+                    offset = dragOffset;
+                });
+                $(document).on("mouseup", function() {
+                    thumbnails.removeClass("grabbing");
+                    thumbnails.off("mousemove");
+                    $(document).off("mouseup");
+                });
+            });
+
+            thumbnailsContainer.on("mouseleave", function() {
+                thumbnails.removeClass("grabbing");
+                thumbnails.off("mousemove");
+                $(document).off("mouseup");
+            });
+
+            thumbnailsContainer.on("mousemove", function(event) {
+                if (thumbnails.hasClass("grabbing")) {
+                    event.preventDefault();
+                    var dragDelta = event.pageX - dragStart;
+                    var dragOffset = Math.max(Math.min(0, dragDelta), -(thumbnailsWrapperWidth - thumbnailsContainer.width()));
+                    thumbnails.css("transform", "translateX(" + dragOffset + "px)");
+                    offset = dragOffset;
+                }
+            });
+
+        });
+    </script>
 
 
 

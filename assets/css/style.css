@@ -1243,7 +1243,7 @@ section {
 
 .carousel-thumbnails-container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 
@@ -1251,82 +1251,66 @@ section {
 
 .carousel-thumbnails {
     display: flex;
-    align-items: center;
+    align-items: left;
     margin-top: 1rem;
     border-radius: 5px;
 }
 
 .carousel-thumbnails img {
     width: 100px;
-    height: 70px;
     object-fit: cover;
     margin: 0 0.5rem;
     cursor: pointer;
-    opacity: 0.5;
-    border-radius: 10px;
+    opacity: 0.8;
+    border-radius: 100%;
     transition: opacity 0.2s ease-in-out;
-    margin-bottom: 10px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .carousel-thumbnails img.active {
     opacity: 1;
+    border: 5px solid rgb(255, 255, 255);
+    box-shadow: 0 0 50px rgba(133, 133, 133, 0.753);
 }
 
 
-/* Estilo para el scrollbar de webkit */
+/* .carousel-thumbnails {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: none;
+} */
 
+
+/* .scrollable-section {
+    overflow: auto;
+} */
+
+
+/* 
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
 }
 
-
-/* Estilo para la pista del scrollbar */
-
  ::-webkit-scrollbar-track {
     background-color: #f1f1f100;
 }
-
-
-/* Estilo para el pulgar del scrollbar */
 
  ::-webkit-scrollbar-thumb {
     background-color: #30303046;
     border-radius: 10px;
 }
 
-
-/* Estilo para los botones del scrollbar */
-
  ::-webkit-scrollbar-button {
     display: none;
 }
 
+*/
 
-/* 
-.carousel-thumbnails::-webkit-scrollbar {
-    display: none;
-} */
-
-.carousel-thumbnails {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-}
-
-
-/* Estilo para la sección con scrollbar */
-
-.scrollable-section {
-    overflow: auto;
-    /* otros estilos aquí */
-}
-
-
-/* Estilo para ocultar el scrollbar en dispositivos con pantalla táctil */
-
-@media (pointer: coarse) {
-    .scrollable-section {
-        overflow: hidden;
+@media only screen and (max-width: 1768px) {
+    .carousel-thumbnails {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
