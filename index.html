@@ -459,16 +459,6 @@
             $thumbnails.removeClass('active');
             $thumbnails.eq(index).addClass('active');
         });
-        // Agregar scroll automático al seleccionar miniaturas
-        $('.carousel-thumbnails').on('scroll', function() {
-            var activeIndex = $('.carousel-thumbnails img.active').index();
-            var activeThumbnail = $('.carousel-thumbnails img.active');
-            var thumbnailWidth = activeThumbnail.width();
-            var thumbnailsContainer = $('.carousel-thumbnails-container');
-            var thumbnailsContainerWidth = thumbnailsContainer.width();
-            var scrollPosition = activeIndex * thumbnailWidth - thumbnailsContainerWidth / 2 + thumbnailWidth / 2;
-            thumbnailsContainer.scrollLeft(scrollPosition);
-        });
     </script>
     <script>
         const images = document.querySelectorAll('.carousel-item img');
